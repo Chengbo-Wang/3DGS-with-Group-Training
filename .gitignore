@@ -1,0 +1,5 @@
+.DS_store
+.idea
+images_high_resolution
+*.py
+.vercel
