@@ -1,6 +1,6 @@
-# Faster and Better 3D Splatting via Group Training
+# (ICCV 2025) Faster and Better 3D Splatting via Group Training
 
-This is the repository that contains source code for the [Faster and Better 3D Splatting via Group Training website]().
+This is the repository that contains source code for the [(ICCV 2025) Faster and Better 3D Splatting via Group Training website](https://chengbo-wang.github.io/3DGS-with-Group-Training/).
 
 If you find Nerfies useful for your work please cite:
 ```
