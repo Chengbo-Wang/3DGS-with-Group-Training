@@ -21,7 +21,7 @@
   </div>
 
 
-This is the repository for the [(ICCV 2025) Faster and Better 3D Splatting via Group Training website](https://chengbo-wang.github.io/3DGS-with-Group-Training/).
+This is the repository for the [(ICCV 2025) Faster and Better 3D Splatting via Group Training](https://chengbo-wang.github.io/3DGS-with-Group-Training/).
 ## 💻Overview
 
 ![Overview](./static/images/Method.png)
