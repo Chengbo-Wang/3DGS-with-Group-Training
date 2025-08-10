@@ -68,7 +68,8 @@
 .images-container2 {
   position: relative;
   height: 300px;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   overflow: hidden;
   border-radius: 1px;
   box-shadow: 0 2px 1px rgba(0,0,0,0.1);
@@ -175,6 +176,10 @@ input.slider {
     gap: 15px;
   }
   
+  .images-container2 {
+    height: 250px;
+  }
+  
   .comparison-col {
     width: 100%;
   }
@@ -186,6 +191,10 @@ input.slider {
 
 @media (max-width: 600px) {
   .images-container {
+    height: 200px;
+  }
+  
+  .images-container2 {
     height: 200px;
   }
 }
