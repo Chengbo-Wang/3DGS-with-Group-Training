@@ -44,9 +44,11 @@ Code is coming soon
 If you find `3DGS with Group Training` useful for your work please cite:
 
 ```bibtex
-@article{wang2024faster,
+@inproceedings{wang2025faster,
   title={Faster and better 3d splatting via group training},
   author={Wang, Chengbo and Ma, Guozheng and Xue, Yifei and Lao, Yizhen},
-  journal={arXiv preprint arXiv:2412.07608},year={2024}
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={27968--27977},
+  year={2025}
 }
 ```
