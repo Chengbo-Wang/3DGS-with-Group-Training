@@ -29,13 +29,71 @@ This is the repository for the [(ICCV 2025) Faster and Better 3D Splatting via G
 
 
 ## 🚀Quick Start
-Code is coming soon
+
+### 1. Add `Group Trainnig` Repository
+
+***DO NOT*** download the `Group_Training_website` branch, only add the `main` branch.
+
+```shell 
+cd <your_3dgs_repo>
+# Clone the repository with `-b main --depth 1`
+git submodule add -b main --depth 1 https://github.com/Chengbo-Wang/3DGS-with-Group-Training.git ./gaussians_grouping/
+git submodule update --init --recursive
+```
+
+### 2. Plug in `Group Training` Method
+
+There are 5 places that need to be modified in the `train.py` file.
+
+***Note***: Sometimes it is necessary to initialize/reset certain parameters, such as in LightGaussian and Mip-Splatting as shown in the 3rd modification:
+
+```python
+...
+#  1st: Import submodule 
+from gaussians_grouping import gaussians_grouping_and_caching, GroupingParams
+#  2nd: Add two inputs 
+def training(..., group_training, point_caching=None):
+# ------
+  ...
+    #  3rd: Grouping before `render()`       
+    if group_training.Grouping and iteration in group_training.grouping_iteration:
+      # Merge and Grouping
+      point_caching = gaussians_grouping_and_caching(iteration, gaussians, group_training, 
+                                                      _points_caching=point_caching)
+      # ! **Optional**: Initialize `mask_blur` for LightGaussian
+      # mask_blur = torch.zeros(gaussians._xyz.shape[0], device='cuda')
+      # ! **Optional**: Initialize 3D filter `compute_3D_filter` for Mip-Splatting
+      # gaussians.compute_3D_filter(cameras=trainCameras)
+    # ------
+    render_pkg = render(viewpoint_cam, gaussians, pipe, bg, use_trained_exp=dataset.train_test_exp)
+...
+
+if __name__ == "__main__":
+  parser = ArgumentParser(description="Training script parameters")
+  #  4th: Instantiate `GroupingParams`
+  gp = GroupingParams(parser)
+  # ------
+  ...
+  #  5th: Input `group_training` 
+  training(..., group_training=gp.extract(args))
+  # ------
+```
+
+### 3. Optional: Plug in `Group Training` Method
+- Users can adjust the grouping interval and range of `Class GroupingParams()`
+- Or implement a more efficient sampling strategy, please check `get_under_training_mask()` function
+
+### 4. Run
+Just run the `full_eval.py` as [3DGS](https://github.com/graphdeco-inria/gaussian-splatting):
+
+```shell
+python full_eval.py -m360 <mipnerf360 folder> -tat <tanks and temples folder> -db <deep blending folder>
+```
 
 ## 🗒️Checklist
 
-- [ ] Release the code of `Group Training`
-
-
+- [x] Release the code of `Group Training`
+- [ ] More efficient probabilistic sampling method than `torch.multinomial()`
 
 
 ## 📑Citation
