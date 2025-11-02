@@ -40,6 +40,21 @@ def gaussians_grouping_and_caching(_iteration: int,
             # Fig 3: Sampling
             _mask_under_training = get_under_training_mask(_gaussian_model, _UTR, _group_training.grouping_method)
             _mask_caching = ~_mask_under_training
+            # Caching all parameters of Gaussian Model
+            # 比如在sort free gs中需要缓存new_features_do和new_features_ro参数
+            # For example, it's necessary to cache the `new_features_do` and `new_features_ro` parameters for Sort-free GS (https://arxiv.org/abs/2410.18931).
+            """
+            _points_caching = {
+                "new_xyz": _gaussian_model._xyz[_mask_caching], 
+                "new_features_dc": _gaussian_model._features_dc[_mask_caching], 
+                "new_features_rest": _gaussian_model._features_rest[_mask_caching], 
+                "new_opacities": _gaussian_model._opacity[_mask_caching], 
+                "new_scaling" : _gaussian_model._scaling[_mask_caching], 
+                "new_rotation" : _gaussian_model._rotation[_mask_caching],
+                "new_features_do" : _gaussian_model._features_do[_mask_caching],
+                "new_features_ro" : _gaussian_model._features_ro[_mask_caching],
+                }
+            """
             _points_caching = {
                 "new_xyz": _gaussian_model._xyz[_mask_caching], 
                 "new_features_dc": _gaussian_model._features_dc[_mask_caching], 

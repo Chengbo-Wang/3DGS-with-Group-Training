@@ -45,7 +45,7 @@ git submodule update --init --recursive
 
 There are 5 places that need to be modified in the `train.py` file.
 
-***Note***: Sometimes it is necessary to initialize/reset certain parameters, such as in LightGaussian and Mip-Splatting as shown in the 3rd modification:
+***Note***: Sometimes it is necessary to initialize/reset certain parameters, such as in [LightGaussian](https://arxiv.org/abs/2311.17245) and [Mip-Splatting](https://arxiv.org/abs/2311.16493) as shown in the 3rd modification:
 
 ```python
 ...
