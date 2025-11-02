@@ -79,7 +79,7 @@ if __name__ == "__main__":
   # ------
 ```
 
-### 3. Optional: Plug in `Group Training` Method
+### 3. Optional: Hyperparameters 
 - Users can adjust the grouping interval and range of `Class GroupingParams()`
 - Or implement a more efficient sampling strategy, please check `get_under_training_mask()` function
 
