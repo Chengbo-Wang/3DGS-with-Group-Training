@@ -24,8 +24,12 @@
 This is the repository for the [(ICCV 2025) Faster and Better 3D Splatting via Group Training](https://chengbo-wang.github.io/3DGS-with-Group-Training/).
 ## 💻Overview
 
-![Overview](./static/images/Method.png)
-**Optimizing all Gaussian primitives concurrently during training is not necessary!** Group Training achieves faster reconstruction speeds by training fewer and more important Gaussian primitives, without compromising reconstruction quality. 
+![Overview](./data/images/Method.png)
+<font color='#dd0000'>**Optimizing all Gaussian primitives concurrently during training is not necessary!** </font> Group Training achieves faster reconstruction speeds by training fewer and more important Gaussian primitives, without compromising reconstruction quality. 
+
+> [!NOTE]
+> ✔️Opacity is the key to effective densification and efficient rendering, as detailed in the **[Proof](./data/docs/grad_proof.pdf)**.
+> ❗Regularizing low-opacity Gaussians can increase training time and reduce FPS, also see Table 4 in [GS-MCMC](https://arxiv.org/abs/2404.09591).
 
 
 ## 🚀Quick Start
