@@ -29,6 +29,7 @@ This is the repository for the [(ICCV 2025) Faster and Better 3D Splatting via G
 
 > [!NOTE]
 > ✔️Opacity is the key to effective densification and efficient rendering, as detailed in the **[Proof](./data/docs/grad_proof.pdf)**.
+> 
 > ❗Regularizing low-opacity Gaussians can increase training time and reduce FPS, also see Table 4 in [GS-MCMC](https://arxiv.org/abs/2404.09591).
 
 
