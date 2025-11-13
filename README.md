@@ -95,9 +95,15 @@ Just run the `full_eval.py` as [3DGS](https://github.com/graphdeco-inria/gaussia
 python full_eval.py -m360 <mipnerf360 folder> -tat <tanks and temples folder> -db <deep blending folder>
 ```
 
+## 📊More Experiment Results
+### 1. Result on [Homogeneous GS](https://kh129.github.io/hogs/), [detailed results](./data/docs/exp_hogs.pdf).
+
+![HoGS](./data/images/exp_hogs.png)
+
 ## 🗒️Checklist
 
 - [x] Release the code of `Group Training`
+- [ ] Results on different 3DGS frameworks
 - [ ] More efficient probabilistic sampling method than `torch.multinomial()`
 
 
